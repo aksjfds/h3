@@ -1,0 +1,10 @@
+[package]
+name = "h3"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+log = "0.4.27"
+mio = { version = "1.0.3", features = ["net", "os-poll"] }
+quiche = "0.24.2"
+ring = "0.17.14"
