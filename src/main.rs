@@ -12,7 +12,10 @@ async fn main() {
 
     let router = Router::new().get(hello);
 
-    let config = RustlsConfig::new(None);
+    let mut alpn_protocols = Vec::with_capacity(3);
+    alpn_protocols.push(b"h3".to_vec());
+
+    let config = RustlsConfig::new(None).alpn_protocols(alpn_protocols);
 
     let listener = TcpListener::new(("0.0.0.0", 5800));
 
